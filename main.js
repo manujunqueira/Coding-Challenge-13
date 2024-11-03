@@ -14,6 +14,12 @@ function fetchProducts() {
         .then((data) => { // this will display the product's details if the fetch worked
             displayProducts(data);
         })
+
+// Task 4 - Handle Errors Gracefully
+        .catch((error) => {
+            productContainer.innerHTML = '<p>Failed to load product details. Please try again later.</p>'; //display message
+            console.error('There has been a problem with your fetch operation:', error); //console log the error 
+        });
 }
 
 fetchProducts();
